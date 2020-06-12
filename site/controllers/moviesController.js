@@ -33,7 +33,7 @@ const controller = {
             ],
             limit: 5
         }).then( (peliculas) => {
-            res.render('movieNew', {
+            res.render('moviesNew', {
                 peliculas: peliculas
             });
         }).catch( (error) => {
