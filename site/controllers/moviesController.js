@@ -13,6 +13,18 @@ const controller = {
             .catch( (error) => {
                 res.send('Ocurrió un error');
             });
+    },
+    getById: (req, res) => {
+        const idPedido = req.params.id;
+        db.Peliculas.findByPk(idPedido)
+            .then( (pelicula) => {
+                res.render('movieDetail', {
+                    pelicula: pelicula
+                });
+            })
+            .catch( (error) => {
+                res.send('Ocurrió un error');
+            })
     }
 };
 
