@@ -25,6 +25,20 @@ const controller = {
             .catch( (error) => {
                 res.send('Ocurrió un error');
             })
+    },
+    lasMasNuevas: (req, res) => {
+        db.Peliculas.findAll({
+            order: [
+                ['release_date', 'DESC']
+            ],
+            limit: 5
+        }).then( (peliculas) => {
+            res.render('movieNew', {
+                peliculas: peliculas
+            });
+        }).catch( (error) => {
+            res.send('Ocurrió un error');
+        })
     }
 };
 
