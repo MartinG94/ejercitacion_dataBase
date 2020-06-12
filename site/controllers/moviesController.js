@@ -3,7 +3,7 @@ const sequelize = db.sequelize;
 
 const controller = {
     listar: (req, res) => {
-        sequelize.query('SELECT * FROM movies')
+        db.Peliculas.findAll()
             .then( (resultado) => {
                 let peliculas = resultado[0];
                 res.render('movies', {
