@@ -53,8 +53,11 @@ const controller = {
             res.send('Ocurrió un error');
         })
     },
+    formularioBusqueda: (req, res) => {
+        res.render('searchMovies');
+    },
     buscar: (req, res) => {
-        const busqueda = req.query.buscar;
+        const busqueda = req.body.buscar;
         db.Peliculas.findAll({
             where:{
                 title: {[db.Sequelize.Op.like]: `%${busqueda}%`}
