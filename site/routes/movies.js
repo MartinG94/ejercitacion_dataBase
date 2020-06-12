@@ -11,4 +11,6 @@ router.put('/detail/:id', moviesController.actualizarPelicula);
 router.delete('/detail/:id', moviesController.eliminarPelicula);
 */
 
+router.get('/new', moviesController.lasMasNuevas);
+
 module.exports = router;
