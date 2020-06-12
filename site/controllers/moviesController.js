@@ -5,7 +5,7 @@ const controller = {
     listar: (req, res) => {
         db.Peliculas.findAll()
             .then( (resultado) => {
-                let peliculas = resultado[0];
+                let peliculas = resultado;
                 res.render('movies', {
                     peliculas: peliculas
                 });
