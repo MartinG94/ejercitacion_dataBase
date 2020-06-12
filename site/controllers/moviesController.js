@@ -39,6 +39,19 @@ const controller = {
         }).catch( (error) => {
             res.send('Ocurrió un error');
         })
+    },
+    recomendadas: (req, res) => {
+        db.Peliculas.findAll({
+            where: {
+                awards: {[db.Sequelize.Op.gte]: 5}
+            }
+        }).then( (peliculas) => {
+            res.render('moviesRecommended', {
+                peliculas: peliculas
+            });
+        }).catch( (error) => {
+            res.send('Ocurrió un error');
+        })
     }
 };
 
