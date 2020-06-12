@@ -3,7 +3,13 @@
         <h1> <%= pelicula.title %> </h1>
         <ul>
             <li> Premios: <%= pelicula.awards %> </li>
-            <li> Duración: <%= pelicula.length %> minutos </li>
+            <li>
+                <% if (pelicula.length != null) { %>
+                    Duración: <%= pelicula.length %> minutos
+                <% } else { %>
+                    Duración: Desconocida
+                <% } %>
+            </li>
             <li> Fecha de Estreno: <%= pelicula.release_date %> </li>
         </ul>
     </body>
