@@ -52,6 +52,20 @@ const controller = {
         }).catch( (error) => {
             res.send('Ocurrió un error');
         })
+    },
+    buscar: (req, res) => {
+        const busqueda = req.query.buscar;
+        db.Peliculas.findAll({
+            where:{
+                title: {[db.Sequelize.Op.like]: `%${busqueda}%`}
+            }
+        }).then( (peliculas) => {
+            res.render('movies',{
+                peliculas: peliculas
+            });
+        }).catch( (error) => {
+            res.send('Ocurrió un error');
+        })
     }
 };
 
