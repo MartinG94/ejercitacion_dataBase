@@ -26,6 +26,12 @@ const controller = {
                 res.send('Ocurrió un error');
             })
     },
+    actualizarPelicula: (req, res) => {
+
+    },
+    eliminarPelicula: (req, res) => {
+
+    },
     lasMasNuevas: (req, res) => {
         db.Peliculas.findAll({
             order: [
