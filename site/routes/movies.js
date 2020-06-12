@@ -13,4 +13,6 @@ router.delete('/detail/:id', moviesController.eliminarPelicula);
 
 router.get('/new', moviesController.lasMasNuevas);
 
+router.get('/recommended', moviesController.recomendadas);
+
 module.exports = router;
