@@ -3,7 +3,9 @@
         <h1>Listado de Peliculas</h1>
         <ul>
             <% for( let i = 0; i < peliculas.length; i++ ) { %>
-                <li> <%= peliculas[i].title %> </li>
+                <li>
+                    <a href="/movies/detail/<%= peliculas[i].id %>"> <%= peliculas[i].title %> </a>
+                </li>
             <% } %>
         </ul>
     </body>
