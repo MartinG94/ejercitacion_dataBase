@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
         length: {
             type: dataTypes.INTEGER
         },
-        release_dat: {
+        release_date: {
             type: dataTypes.STRING
         },
         genre_id: {
