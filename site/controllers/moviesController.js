@@ -75,7 +75,7 @@ const controller = {
                 return pelicula.destroy();
             })
             .then( () => {
-                return res.send('Pelicula eliminada de la Base de Datos');
+                return res.redirect('/movies');
             })
             .catch( (error) => {
                 return res.send('Ocurrió un error');
