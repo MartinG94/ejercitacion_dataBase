@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <h1>Resultados de la Busqueda</h1>
+    <ul>
+        <% for( let i = 0; i < peliculas.length; i++ ) { %>
+            <li>
+                <a href="/movies/detail/<%= peliculas[i].id %>"> <%= peliculas[i].title %> </a><br><br>
+            </li>
+        <% } %>
+    </ul>
+    <%- include('./partials/scriptsBootstrap') %>
+</body>
+</html>
