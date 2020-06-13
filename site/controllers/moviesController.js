@@ -7,6 +7,7 @@ const controller = {
             .then( (resultado) => {
                 let peliculas = resultado;
                 res.render('movies', {
+                    title: 'Peliculas',
                     peliculas: peliculas
                 });
             })
@@ -19,6 +20,7 @@ const controller = {
         db.Peliculas.findByPk(idPedido)
             .then( (pelicula) => {
                 res.render('movieDetail', {
+                    title: 'Detail',
                     pelicula: pelicula
                 });
             })
@@ -40,6 +42,7 @@ const controller = {
             limit: 5
         }).then( (peliculas) => {
             res.render('moviesNew', {
+                title: 'Peliculas Recientes',
                 peliculas: peliculas
             });
         }).catch( (error) => {
@@ -53,6 +56,7 @@ const controller = {
             }
         }).then( (peliculas) => {
             res.render('moviesRecommended', {
+                title: 'Recomendadas',
                 peliculas: peliculas
             });
         }).catch( (error) => {
@@ -60,7 +64,9 @@ const controller = {
         })
     },
     formularioBusqueda: (req, res) => {
-        res.render('searchMovies');
+        res.render('searchMovies', {
+            title: 'Buscador'
+        });
     },
     buscar: (req, res) => {
         const busqueda = req.body.buscar;
@@ -70,6 +76,7 @@ const controller = {
             }
         }).then( (peliculas) => {
             res.render('movies',{
+                title: 'Peliculas Encontradas',
                 peliculas: peliculas
             });
         }).catch( (error) => {
