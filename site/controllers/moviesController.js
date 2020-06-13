@@ -26,7 +26,7 @@ const controller = {
             })
             .catch( (error) => {
                 res.send('Ocurrió un error');
-            })
+            });
     },
     getByIdForEdit: (req, res) => {
         const idPedido = req.params.id;
@@ -39,7 +39,7 @@ const controller = {
             })
             .catch( (error) => {
                 res.send('Ocurrió un error');
-            })
+            });
     },
     actualizarPelicula: (req, res) => {
         const idPelicula = req.params.id;
@@ -73,11 +73,13 @@ const controller = {
         db.Peliculas.findByPk(idPelicula)
             .then( (pelicula) => {
                 pelicula.destroy();
+            })
+            .then( () => {
                 res.send('Pelicula eliminada de la Base de Datos');
             })
             .catch( (error) => {
                 res.send('Ocurrió un error');
-            })
+            });
     },
     lasMasNuevas: (req, res) => {
         db.Peliculas.findAll({
@@ -92,7 +94,7 @@ const controller = {
             });
         }).catch( (error) => {
             res.send('Ocurrió un error');
-        })
+        });
     },
     recomendadas: (req, res) => {
         db.Peliculas.findAll({
@@ -106,7 +108,7 @@ const controller = {
             });
         }).catch( (error) => {
             res.send('Ocurrió un error');
-        })
+        });
     },
     formularioBusqueda: (req, res) => {
         res.render('searchMovies', {
@@ -129,7 +131,7 @@ const controller = {
             });
         }).catch( (error) => {
             res.send('Ocurrió un error');
-        })
+        });
     }
 };
 
