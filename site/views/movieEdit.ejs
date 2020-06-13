@@ -2,7 +2,7 @@
 <html lang="en">
 <%- include('./partials/head') %>
 <body class="container-fluid">
-    <form method="POST" action="/detail/:id/editar?_method=PUT">
+    <form method="POST" action="movies/detail/:id/editar?_method=PUT">
         <label for="title">Titulo </label>
         <input type="text" name="title" id="" value="<%= pelicula.title %>"> <br>
 
