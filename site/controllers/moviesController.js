@@ -42,7 +42,18 @@ const controller = {
             })
     },
     actualizarPelicula: (req, res) => {
-        /* TO DO */
+        const idPelicula = req.params.id;
+        const body = req.body;
+        db.Peliculas.upsert({
+            id: idPelicula,
+            title: body.title,
+            awards: body.awards,
+            length: body.length
+        }).then( () => {
+            res.redirect(`/movies/detail/${idPelicula}`);
+        }).catch( (error) => {
+            res.send('Ocurrió un error');
+        });
     },
     eliminarPelicula: (req, res) => {
         /* TO DO */
