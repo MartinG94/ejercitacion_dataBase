@@ -55,8 +55,29 @@ const controller = {
             res.send('Ocurrió un error');
         });
     },
+    confirmarEliminacion: (req, res) => {
+        const idPelicula = req.params.id;
+        db.Peliculas.findByPk(idPelicula)
+            .then( (pelicula) => {
+                res.render('deleteFormMovie', {
+                    title: 'Eliminar Pelicula',
+                    pelicula: pelicula
+                })
+            })
+            .catch( (error) => {
+                res.send('Ocurrió un error');
+            });
+    },
     eliminarPelicula: (req, res) => {
-        /* TO DO */
+        const idPelicula = req.params.id;
+        db.Peliculas.findByPk(idPelicula)
+            .then( (pelicula) => {
+                pelicula.destroy();
+                res.send('Pelicula eliminada de la Base de Datos');
+            })
+            .catch( (error) => {
+                res.send('Ocurrió un error');
+            })
     },
     lasMasNuevas: (req, res) => {
         db.Peliculas.findAll({
