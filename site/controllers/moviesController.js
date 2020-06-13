@@ -42,7 +42,7 @@ const controller = {
             })
     },
     actualizarPelicula: (req, res) => {
-        
+        /* TO DO */
     },
     eliminarPelicula: (req, res) => {
         /* TO DO */
