@@ -10,6 +10,7 @@ router.get('/detail/:id', moviesController.getById);
 router.get('/detail/:id/editar', moviesController.getByIdForEdit);
 router.put('/detail/:id/editar', moviesController.actualizarPelicula);
 
+router.get('/detail/:id/eliminar', moviesController.confirmarEliminacion);
 router.delete('/detail/:id/eliminar', moviesController.eliminarPelicula);
 
 router.get('/new', moviesController.lasMasNuevas);
