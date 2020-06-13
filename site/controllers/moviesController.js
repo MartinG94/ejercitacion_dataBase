@@ -28,8 +28,21 @@ const controller = {
                 res.send('Ocurrió un error');
             })
     },
+    getByIdForEdit: (req, res) => {
+        const idPedido = req.params.id;
+        db.Peliculas.findByPk(idPedido)
+            .then( (pelicula) => {
+                res.render('movieEdit', {
+                    title: 'Detail',
+                    pelicula: pelicula
+                });
+            })
+            .catch( (error) => {
+                res.send('Ocurrió un error');
+            })
+    },
     actualizarPelicula: (req, res) => {
-        /* TO DO */
+        
     },
     eliminarPelicula: (req, res) => {
         /* TO DO */
