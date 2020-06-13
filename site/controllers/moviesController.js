@@ -75,7 +75,10 @@ const controller = {
                 title: {[db.Sequelize.Op.like]: `%${busqueda}%`}
             }
         }).then( (peliculas) => {
-            res.render('movies',{
+            if(peliculas.length == 0) {
+                return res.send('No se encontraron resultados para su busqueda');
+            };
+            res.render('resultSearchMovies',{
                 title: 'Peliculas Encontradas',
                 peliculas: peliculas
             });
