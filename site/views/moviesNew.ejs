@@ -1,15 +1,18 @@
-<html>
-    <body>
-        <h1>Listado de Peliculas más nuevas</h1>
-        <ul>
-            <% for( let i = 0; i < peliculas.length; i++ ) { %>
-                <li>
-                    <a href="/movies/detail/<%= peliculas[i].id %>"> <%= peliculas[i].title %> </a>
-                    <br>
-                    <b> Fecha de Estreno: </b> <%= peliculas[i].release_date %>
-                    <br><br>
-                </li>
-            <% } %>
-        </ul>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body>
+    <h1>Listado de Peliculas más nuevas</h1>
+    <ul>
+        <% for( let i = 0; i < peliculas.length; i++ ) { %>
+            <li>
+                <a href="/movies/detail/<%= peliculas[i].id %>"> <%= peliculas[i].title %> </a>
+                <br>
+                <b> Fecha de Estreno: </b> <%= peliculas[i].release_date %>
+                <br><br>
+            </li>
+        <% } %>
+    </ul>
+    <%- include('./partials/scriptsBootstrap') %>
+</body>
 </html>
