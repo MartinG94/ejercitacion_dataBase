@@ -6,8 +6,11 @@ var moviesController = require('../controllers/moviesController');
 router.get('/', moviesController.listar);
 
 router.get('/detail/:id', moviesController.getById);
-router.put('/detail/:id', moviesController.actualizarPelicula);
-router.delete('/detail/:id', moviesController.eliminarPelicula);
+
+router.get('/detail/:id/editar', moviesController.getByIdForEdit);
+router.put('/detail/:id/editar', moviesController.actualizarPelicula);
+
+router.delete('/detail/:id/eliminar', moviesController.eliminarPelicula);
 
 router.get('/new', moviesController.lasMasNuevas);
 
