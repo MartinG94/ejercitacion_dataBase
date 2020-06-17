@@ -23,4 +23,7 @@ router.get('/recommended', moviesController.recomendadas);
 router.get('/search', moviesController.formularioBusqueda);
 router.post('/search', moviesController.buscar);
 
+router.get('/add', moviesController.formularioRegistroPelicula);
+router.post('/add', moviesController.registrarPelicula);
+
 module.exports = router;
