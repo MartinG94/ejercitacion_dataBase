@@ -134,7 +134,9 @@ const controller = {
         });
     },
     formularioRegistroPelicula: (req, res) => {
-
+        return res.render('addMovie', {
+            title: 'Registrar Película'
+        });
     },
     registrarPelicula: (req, res) => {
         const body = req.body;
@@ -144,7 +146,7 @@ const controller = {
             length: body.length,
             release_date: body.release_date
         })
-        res.redirect('/movies');
+        return res.redirect('/movies');
     }
 };
 
