@@ -5,9 +5,6 @@ var moviesController = require('../controllers/moviesController');
 /* GET home page. */
 router.get('/', moviesController.listar);
 
-// router.get('/add', moviesController.formularioNuevaPelicula);
-// router.put('/add', moviesController.publicarPelicula);
-
 router.get('/detail/:id', moviesController.getById);
 
 router.get('/detail/:id/editar', moviesController.getByIdForEdit);
