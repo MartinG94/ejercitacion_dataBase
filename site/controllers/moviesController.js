@@ -3,7 +3,7 @@ const sequelize = db.sequelize;
 
 const controller = {
     listar: (req, res) => {
-        db.Peliculas.findAll()
+        db.Pelicula.findAll()
             .then( (resultado) => {
                 let peliculas = resultado;
                 return res.render('movies', {
@@ -17,7 +17,7 @@ const controller = {
     },
     getById: (req, res) => {
         const idPedido = req.params.id;
-        db.Peliculas.findByPk(idPedido)
+        db.Pelicula.findByPk(idPedido)
             .then( (pelicula) => {
                 return res.render('movieDetail', {
                     title: 'Detail',
@@ -30,7 +30,7 @@ const controller = {
     },
     getByIdForEdit: (req, res) => {
         const idPedido = req.params.id;
-        db.Peliculas.findByPk(idPedido)
+        db.Pelicula.findByPk(idPedido)
             .then( (pelicula) => {
                 return res.render('movieEdit', {
                     title: 'Detail',
@@ -56,7 +56,7 @@ const controller = {
         }).catch( (error) => {
             return res.send('Ocurrió un error');
         }); */
-        db.Peliculas.update({
+        db.Pelicula.update({
             title: body.title,
             awards: body.awards,
             length: body.length,
@@ -73,7 +73,7 @@ const controller = {
     },
     confirmarEliminacion: (req, res) => {
         const idPelicula = req.params.id;
-        db.Peliculas.findByPk(idPelicula)
+        db.Pelicula.findByPk(idPelicula)
             .then( (pelicula) => {
                 return res.render('deleteFormMovie', {
                     title: 'Eliminar Pelicula',
@@ -86,7 +86,7 @@ const controller = {
     },
     eliminarPelicula: (req, res) => {
         const idPelicula = req.params.id;
-        db.Peliculas.destroy({
+        db.Pelicula.destroy({
             where: {
                 id: idPelicula
             }
@@ -97,7 +97,7 @@ const controller = {
         })
     },
     lasMasNuevas: (req, res) => {
-        db.Peliculas.findAll({
+        db.Pelicula.findAll({
             order: [
                 ['release_date', 'DESC']
             ],
@@ -112,7 +112,7 @@ const controller = {
         });
     },
     recomendadas: (req, res) => {
-        db.Peliculas.findAll({
+        db.Pelicula.findAll({
             where: {
                 awards: {[db.Sequelize.Op.gte]: 5}
             }
@@ -132,7 +132,7 @@ const controller = {
     },
     buscar: (req, res) => {
         const busqueda = req.body.buscar;
-        db.Peliculas.findAll({
+        db.Pelicula.findAll({
             where:{
                 title: {[db.Sequelize.Op.like]: `%${busqueda}%`}
             }
@@ -155,7 +155,7 @@ const controller = {
     },
     registrarPelicula: (req, res) => {
         const body = req.body;
-        db.Peliculas.create({
+        db.Pelicula.create({
             title: body.title,
             awards: body.awards,
             length: body.length,
