@@ -48,7 +48,8 @@ const controller = {
             id: idPelicula,
             title: body.title,
             awards: body.awards,
-            length: body.length
+            length: body.length,
+            release_date: body.release_date
         }).then( () => {
             return res.redirect(`/movies/detail/${idPelicula}`);
         }).catch( (error) => {
