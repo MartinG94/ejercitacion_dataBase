@@ -137,7 +137,14 @@ const controller = {
 
     },
     registrarPelicula: (req, res) => {
-
+        const body = req.body;
+        db.Peliculas.create({
+            title: body.title,
+            awards: body.awards,
+            length: body.length,
+            release_date: body.release_date
+        })
+        res.redirect('/movies');
     }
 };
 
