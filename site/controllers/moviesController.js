@@ -44,6 +44,7 @@ const controller = {
     actualizarPelicula: (req, res) => {
         const idPelicula = req.params.id;
         const body = req.body;
+        /* Upsert crea el registro en caso de que no exista! */
         /* db.Peliculas.upsert({
             id: idPelicula,
             title: body.title,
