@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const alias = 'Peliculas';
+    const alias = 'Pelicula';
     const columnas = {
         id: {
             type: dataTypes.INTEGER,
@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         release_date: {
-            type: dataTypes.STRING
+            type: dataTypes.DATE
         },
         genre_id: {
             type: dataTypes.INTEGER
