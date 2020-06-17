@@ -132,6 +132,12 @@ const controller = {
         }).catch( (error) => {
             return res.send('Ocurrió un error');
         });
+    },
+    formularioRegistroPelicula: (req, res) => {
+
+    },
+    registrarPelicula: (req, res) => {
+
     }
 };
 
