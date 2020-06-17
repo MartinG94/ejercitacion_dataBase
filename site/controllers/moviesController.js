@@ -86,16 +86,15 @@ const controller = {
     },
     eliminarPelicula: (req, res) => {
         const idPelicula = req.params.id;
-        db.Peliculas.findByPk(idPelicula)
-            .then( (pelicula) => {
-                return pelicula.destroy();
-            })
-            .then( () => {
-                return res.redirect('/movies');
-            })
-            .catch( (error) => {
-                return res.send('Ocurrió un error');
-            });
+        db.Peliculas.destroy({
+            where: {
+                id: idPelicula
+            }
+        }).then( () => {
+            return res.redirect('/movies');
+        }).catch( (error) => {
+            return res.send('Ocurrió un error');
+        })
     },
     lasMasNuevas: (req, res) => {
         db.Peliculas.findAll({
