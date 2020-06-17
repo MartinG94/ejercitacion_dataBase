@@ -44,12 +44,26 @@ const controller = {
     actualizarPelicula: (req, res) => {
         const idPelicula = req.params.id;
         const body = req.body;
-        db.Peliculas.upsert({
+        /* db.Peliculas.upsert({
             id: idPelicula,
             title: body.title,
             awards: body.awards,
             length: body.length,
             release_date: body.release_date
+        }).then( () => {
+            return res.redirect(`/movies/detail/${idPelicula}`);
+        }).catch( (error) => {
+            return res.send('Ocurrió un error');
+        }); */
+        db.Peliculas.update({
+            title: body.title,
+            awards: body.awards,
+            length: body.length,
+            release_date: body.release_date
+        },{
+            where: {
+                id: idPelicula
+            }
         }).then( () => {
             return res.redirect(`/movies/detail/${idPelicula}`);
         }).catch( (error) => {
