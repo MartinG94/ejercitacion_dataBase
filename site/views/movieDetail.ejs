@@ -15,7 +15,8 @@
         <li> Fecha de Estreno: <%= pelicula.release_date %> </li>
     </ul>
     <a href="/movies/detail/<%= pelicula.id %>/editar">EDITAR</a>
-    <a href="/movies/detail/<%= pelicula.id %>/eliminar">ELIMINAR</a>
+    <a href="/movies/detail/<%= pelicula.id %>/eliminar">ELIMINAR</a><br>
+    <a href="/movies">Volver</a>
     <%- include('./partials/scriptsBootstrap') %>
 </body>
 </html>
