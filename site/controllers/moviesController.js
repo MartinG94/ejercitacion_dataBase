@@ -19,6 +19,9 @@ const controller = {
         const idPedido = req.params.id;
         db.Pelicula.findByPk(idPedido)
             .then( (pelicula) => {
+                if(!pelicula){
+                    return res.send(`No se encontró una pelicula con el id: ${idPedido}`);
+                };
                 return res.render('movieDetail', {
                     title: 'Detail',
                     pelicula: pelicula
