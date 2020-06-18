@@ -1,5 +1,6 @@
 const db = require('../database/models/index');
 const sequelize = db.sequelize;
+const moment = require('moment');
 
 const controller = {
     listar: (req, res) => {
@@ -22,6 +23,7 @@ const controller = {
                 if(!pelicula){
                     return res.send(`No se encontró una pelicula con el id: ${idPedido}`);
                 };
+                pelicula.release_date_formatted = moment(pelicula.release_date).format('DD/MM/YYYY');
                 return res.render('movieDetail', {
                     title: 'Detail',
                     pelicula: pelicula
