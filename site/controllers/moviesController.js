@@ -165,8 +165,11 @@ const controller = {
             awards: body.awards,
             length: body.length,
             release_date: body.release_date
+        }).then( () => {
+            return res.redirect('/movies');
+        }).catch( (error) => {
+            return res.send('Ocurrió un error');
         })
-        return res.redirect('/movies');
     }
 };
 
