@@ -108,6 +108,9 @@ const controller = {
             ],
             limit: 5
         }).then( (peliculas) => {
+            peliculas.forEach( pelicula => {
+                pelicula.release_date_formatted = moment(pelicula.release_date).format('DD/MM/YYYY');
+            });
             return res.render('moviesNew', {
                 title: 'Peliculas Recientes',
                 peliculas: peliculas
