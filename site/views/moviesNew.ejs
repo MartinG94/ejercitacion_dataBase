@@ -4,14 +4,14 @@
 <body class="container-fluid">
     <h1>Listado de Peliculas más nuevas</h1>
     <ul>
-        <% for( let i = 0; i < peliculas.length; i++ ) { %>
+        <% peliculas.forEach(pelicula => { %>
             <li>
-                <a href="/movies/detail/<%= peliculas[i].id %>"> <%= peliculas[i].title %> </a>
-                <br>
-                <b> Fecha de Estreno: </b> <%= peliculas[i].release_date %>
-                <br><br>
-            </li>
-        <% } %>
+            <a href="/movies/detail/<%= pelicula.id %>"> <%= pelicula.title %> </a>
+            <br>
+            <b> Fecha de Estreno: </b> <%= pelicula.release_date %>
+            <br><br>
+        </li>
+        <% }) %>
     </ul>
     <%- include('./partials/scriptsBootstrap') %>
 </body>
