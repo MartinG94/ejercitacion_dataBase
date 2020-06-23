@@ -57,7 +57,7 @@ const controller = {
                 id: idActor
             }
         }).then( () => {
-            return res.redirect(`/actors/detail/${idPelicula}`);
+            return res.redirect(`/actors/detail/${idActor}`);
         }).catch( (error) => {
             return res.send('Ocurrió un error');
         });
