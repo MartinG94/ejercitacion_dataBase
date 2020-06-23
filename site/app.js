@@ -6,7 +6,6 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var moviesRouter = require('./routes/movies');
 var actorsRouter = require('./routes/actors');
 
