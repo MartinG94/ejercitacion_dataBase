@@ -31,6 +31,19 @@ const controller = {
                 return res.send('Ocurrió un error');
             })
     },
+    getByIdForEdit: (req, res) => {
+        const idPedido = req.params.id;
+        db.Actor.findByPk(idPedido)
+            .then( (actor) => {
+                return res.render('actorEdit', {
+                    title: 'Detail',
+                    actor: actor
+                });
+            })
+            .catch( (error) => {
+                return res.send('Ocurrió un error');
+            });
+    },
 
 };
 
