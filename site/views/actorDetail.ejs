@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+<body class="container-fluid">
+    <h1> <%= actor.first_name %> <%= actor.last_name %> </h1>
+    <ul>
+        <li> Nombre: <%= actor.first_name %> </li>
+        <li> Apellido: <%= actor.last_name %> </li>
+        <li> Rating: <%= actor.rating %> </li>
+        <li> Pelicula Favorita: <%= actor.favorite_movie_id %> </li>
+    </ul>
+    <a href="/actors/edit/<%= actor.id %>">EDITAR</a>
+    <a href="/actors/delete/<%= actor.id %>">ELIMINAR</a><br>
+    <a href="/actors">Volver</a>
+    <%- include('./partials/scriptsBootstrap') %>
+</body>
+</html>
