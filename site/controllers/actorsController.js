@@ -44,6 +44,24 @@ const controller = {
                 return res.send('Ocurrió un error');
             });
     },
+    actualizarActor: (req, res) => {
+        const idActor = req.params.id;
+        const body = req.body;
+        db.Actor.update({
+            first_name: body.first_name,
+            last_name: body.last_name,
+            rating: body.rating,
+            favorite_movie_id: body.favorite_movie_id
+        },{
+            where: {
+                id: idActor
+            }
+        }).then( () => {
+            return res.redirect(`/actors/detail/${idPelicula}`);
+        }).catch( (error) => {
+            return res.send('Ocurrió un error');
+        });
+    },
 
 };
 
