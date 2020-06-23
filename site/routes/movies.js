@@ -7,11 +7,11 @@ router.get('/', moviesController.listar);
 
 router.get('/detail/:id', moviesController.getById);
 
-router.get('/detail/:id/editar', moviesController.getByIdForEdit);
-router.put('/detail/:id/editar', moviesController.actualizarPelicula);
+router.get('/edit/:id', moviesController.getByIdForEdit);
+router.post('/edit/:id', moviesController.actualizarPelicula);
 
-router.get('/detail/:id/eliminar', moviesController.confirmarEliminacion);
-router.delete('/detail/:id/eliminar', moviesController.eliminarPelicula);
+router.get('/delete/:id', moviesController.confirmarEliminacion);
+router.delete('/delete/:id', moviesController.eliminarPelicula);
 
 router.get('/new', moviesController.lasMasNuevas);
 
